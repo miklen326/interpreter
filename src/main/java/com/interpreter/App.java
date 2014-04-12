@@ -32,7 +32,6 @@ public class App {
 	public static void execute(String input) {
 		ExprLexer lexer = new ExprLexer(new ANTLRInputStream(input));
 		ExprParser parser = new ExprParser(new CommonTokenStream(lexer));
-		lexer.removeErrorListeners();
 		ProgContext exprContext = parser.prog();
 		new Interpreter().process(exprContext);
 	}
