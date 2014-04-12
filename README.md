@@ -1,4 +1,4 @@
-interpreter
+Interpreter
 ===========
 
 The Java projects which implements the interpreter for the simple language.
