@@ -22,6 +22,11 @@ public class App {
 		// Calculate the factorial of 10
 		// Output: 3628800
 		execute(MessageFormat.format(FACTORIAL, 10));
+		
+		/*
+		for (String s: args) {
+			execute(s);
+        }*/
 	}
 	
 	public static void execute(String input) {
