@@ -16,20 +16,12 @@ import com.interpreter.parsers.ExprParser.OperatorsContext;
 import com.interpreter.parsers.ExprParser.ProgContext;
 
 public class App {
-	static final String FACTORIAL = "{0} 0 > if {0} DUP 1 - do DUP 1 - LOOP {0} 1 - do * LOOP . else {0} 0 < if 2147483647 . else 1 . then then ";
+	static final String FACTORIAL = "{0} 1 SWAP 1 - do DUP 1 + LOOP DUP 1 - do * LOOP .";
 		
 	public static void main(String[] args) {
 		// Calculate the factorial of 10
 		// Output: 3628800
 		execute(MessageFormat.format(FACTORIAL, 10));
-		
-		// Calculate the factorial of 0
-		// Output: 1
-		execute(MessageFormat.format(FACTORIAL, 0));
-		
-		// Calculate the factorial of -1
-		// Output:  2147483647 (max integer) 
-		execute(MessageFormat.format(FACTORIAL, -1));
 	}
 	
 	public static void execute(String input) {
@@ -86,8 +78,8 @@ public class App {
 			} else if (operator.equals("SWAP")) {
 				Integer val1 = dataStack.pop();
 				Integer val2 = dataStack.pop();
-				dataStack.push(val2);
 				dataStack.push(val1);
+				dataStack.push(val2);
 			} else if (operator.equals(">")) {
 				Integer val1 = dataStack.pop();
 				Integer val2 = dataStack.pop();
